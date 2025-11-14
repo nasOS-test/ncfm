@@ -58,8 +58,9 @@ def draw_ui():
         for a in range(0, len(pages[page])-lines+2):
             print()
     print(f"\033[43;30;1mPage {page+1}/{len(pages)}\033[0m", end="\n")
-draw_ui()
-while True:
+
+def main_loop():
+    global page, filefocus
     k = readkey()
     if k == "q" or k == "Q":
         exit()
@@ -142,3 +143,9 @@ q - exit
         os.mkdir(os.getcwd()+"/"+a)
         gen_listdir()
         draw_ui()
+
+if __name__ == "__main__":
+    draw_ui()
+    while True:
+        main_loop()
+        
